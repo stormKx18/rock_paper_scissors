@@ -8,17 +8,23 @@ let computerScore=0;
 
 function getComputerChoice(){
     let rnd = Math.floor(Math.random()*3)+1;
-    decodeRPS(rnd);
-    
     return rnd;
+}
+
+function updateScores(){
+    document.querySelector("#hscore").innerText=humanScore;
+    document.querySelector("#cscore").innerText=computerScore;
 }
 
 function getHumanChoice(){
     let ans = prompt('Select 1(Rock), 2(Paper) or 3(Scissors)')
-    decodeRPS(ans);
+    return ans;
+}
 
-    document.querySelector("#hscore").innerText=humanScore;
-    document.querySelector("#cscore").innerText=computerScore;
+function playRound(){
+    let humanSel=getHumanChoice();
+    let computerSel=getComputerChoice();
+    
 }
 
 
