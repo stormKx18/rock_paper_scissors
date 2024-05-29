@@ -91,3 +91,11 @@ function decodeRPS(rnd){
         //console.log('Scissors');
     }
 }
+
+/* Rock, paper, scissors buttons */
+let options = document.querySelector(".options");
+options.addEventListener("click",(event)=>{
+    let target = event.target;
+
+    console.log(target.id);
+});
