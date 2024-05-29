@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="javascript.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <p>Check the console to play the game.</p>
+
+    <div>Games played:
+        <div id="games" class="score">0</div>
+    </div>
     <div>Human score:
-        <div id="hscore">0</div>
+        <div id="hscore" class="score">0</div>
     </div>
     <div>Computer score:
-        <div id="cscore">0</div>
+        <div id="cscore" class="score">0</div>
+    </div>
+    <div>Draws:
+        <div id="draws" class="score">0</div>
     </div>
 
     <div class="options">
@@ -23,12 +30,12 @@
     </div>
 
 
-    <button onclick="playGame()">Play Game</button>
-    <div>Human selection:</div>
-    <div id="humSel"></div>
-    <div>Computer selection:</div>
-    <div id="compSel"></div>
-
+    <div>Human selection:
+    <div id="humSel" class="score winner"></div>
+    </div>
+    <div>Computer selection:
+    <div id="compSel" class="score"></div>
+    </div>
     <div id="winner"></div>
 
 </body>

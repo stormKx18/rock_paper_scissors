@@ -1,0 +1,7 @@
+.score{
+    display: inline-block;
+}
+
+.winner{
+    background-color: #54ef5b;
+}

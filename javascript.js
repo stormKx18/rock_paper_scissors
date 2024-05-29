@@ -1,7 +1,9 @@
 console.log('Rock Paper Scissors game');
 
 let humanScore=0;
+let humanSel=0;
 let computerScore=0;
+let draws=0;
 let gamesPlayed=0;
 
 //getComputerChoice will randomly return 
@@ -15,6 +17,9 @@ function getComputerChoice(){
 function updateScores(humanSel,computerSel){
     document.querySelector("#compSel").innerText=decodeRPS(computerSel);
     document.querySelector("#humSel").innerText=decodeRPS(humanSel);
+
+    //Increase games played
+    gamesPlayed++;
     //Human won
     if(humanSel==1 && computerSel==3){
         console.log('Human won');
@@ -38,10 +43,13 @@ function updateScores(humanSel,computerSel){
         computerScore++;
     }else{
         console.log('Draw');
+        draws++;
     }
 
     document.querySelector("#hscore").innerText=humanScore;
     document.querySelector("#cscore").innerText=computerScore;
+    document.querySelector("#games").innerText=gamesPlayed;
+    document.querySelector("#draws").innerText=draws;
 }
 
 function getHumanChoice(){
@@ -51,19 +59,16 @@ function getHumanChoice(){
 }
 
 function playRound(){
-    let humanSel=getHumanChoice();
+
     let computerSel=getComputerChoice();
-
     updateScores(humanSel,computerSel);
-    gamesPlayed++;
-
 }
 
 function playGame(){
     document.querySelector("#winner").innerText='';
 
     playRound();  
-
+/*
     if(gamesPlayed>=5){
         if (computerScore>humanScore){
             document.querySelector("#winner").innerText='Computer won!';
@@ -73,6 +78,7 @@ function playGame(){
             document.querySelector("#winner").innerText='It is a draw!';
         }
     }
+    */
 
 }
 
@@ -96,6 +102,8 @@ function decodeRPS(rnd){
 let options = document.querySelector(".options");
 options.addEventListener("click",(event)=>{
     let target = event.target;
+    humanSel = target.id;
+    //console.log(target.id);
 
-    console.log(target.id);
+    playGame();
 });
