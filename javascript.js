@@ -15,36 +15,64 @@ function getComputerChoice(){
 }
 
 function updateScores(humanSel,computerSel){
-    document.querySelector("#compSel").innerText=decodeRPS(computerSel);
-    document.querySelector("#humSel").innerText=decodeRPS(humanSel);
+    let compSel = document.querySelector("#compSel");
+    let humSel = document.querySelector("#humSel");
+
+    //Display human and computer selection
+    compSel.innerText=decodeRPS(computerSel);
+    humSel.innerText=decodeRPS(humanSel);
 
     //Increase games played
     gamesPlayed++;
+    let winner = -1;
+
     //Human won
     if(humanSel==1 && computerSel==3){
         console.log('Human won');
         humanScore++;
+        winner=1;
     }else if(humanSel==2 && computerSel==1){
         console.log('Human won');
         humanScore++;
+        winner=1;
     }else if(humanSel==3 && computerSel==2){
         console.log('Human won');
         humanScore++;
+        winner=1;
     }
     //Computer won
     else if(humanSel==1 && computerSel==2){
         console.log('Computer won');
         computerScore++;
+        winner=0;
     }else if(humanSel==2 && computerSel==3){
         console.log('Computer won');
         computerScore++;
+        winner=0;
     }else if(humanSel==3 && computerSel==1){
         console.log('Computer won');
         computerScore++;
+        winner=0;
     }else{
         console.log('Draw');
         draws++;
     }
+    //Change winner color
+    if (winner==1){
+        //Human won
+        humSel.classList.add("winner");
+        compSel.classList.remove("winner");
+    }else if(winner==0){
+        //Computer won
+        compSel.classList.add("winner");
+        humSel.classList.remove("winner");      
+    }else{
+        //Draw
+        compSel.classList.remove("winner");
+        humSel.classList.remove("winner"); 
+    }
+
+
 
     document.querySelector("#hscore").innerText=humanScore;
     document.querySelector("#cscore").innerText=computerScore;
@@ -68,17 +96,6 @@ function playGame(){
     document.querySelector("#winner").innerText='';
 
     playRound();  
-/*
-    if(gamesPlayed>=5){
-        if (computerScore>humanScore){
-            document.querySelector("#winner").innerText='Computer won!';
-        }else if(computerScore<humanScore){
-            document.querySelector("#winner").innerText='Human won!';
-        }else{
-            document.querySelector("#winner").innerText='It is a draw!';
-        }
-    }
-    */
 
 }
 
@@ -86,15 +103,12 @@ function playGame(){
 function decodeRPS(rnd){
     if (rnd==1){
         return('Rock')
-        //console.log('Rock');
     }
     else if(rnd==2){
         return('Paper')
-        //console.log('Paper');
     }
     else{
         return('Scissors')
-        //console.log('Scissors');
     }
 }
 
@@ -103,7 +117,6 @@ let options = document.querySelector(".options");
 options.addEventListener("click",(event)=>{
     let target = event.target;
     humanSel = target.id;
-    //console.log(target.id);
 
     playGame();
 });

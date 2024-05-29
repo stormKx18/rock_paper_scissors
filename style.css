@@ -1,7 +1,20 @@
+body{
+    background-color: #f4f4f4;
+}
 .score{
     display: inline-block;
 }
 
 .winner{
     background-color: #54ef5b;
+}
+
+.flexCenter{
+    display: flex;
+    justify-content:center;/*space-between*/
+    flex-wrap: wrap;
+    gap:2rem;
+    flex-direction:row; 
+    align-items:center;
+    margin-bottom: 20px;  
 }
