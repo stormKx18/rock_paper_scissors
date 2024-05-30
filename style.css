@@ -18,3 +18,10 @@ body{
     align-items:center;
     margin-bottom: 20px;  
 }
+
+button{
+    padding: 10px;
+    background-color: purple;
+    font-weight: bold;
+    color: #f4f4f4;
+}
